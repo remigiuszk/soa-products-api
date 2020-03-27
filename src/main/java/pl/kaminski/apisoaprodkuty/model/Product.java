@@ -1,4 +1,4 @@
-package pl.kaminski.apisoaprodkuty;
+package pl.kaminski.apisoaprodkuty.model;
 
 
 import javax.persistence.Entity;
@@ -17,17 +17,18 @@ public class Product {
     private boolean contract;
     private String description;
     private double price;
-    private boolean activeInactive;
-    private List<String> avabileClasses;
+    private boolean active;
+    //private List<String> avabileClasses;
 
-    public Product(String name, int durationInMonths, boolean contract, String description, double price, boolean activeInactive, List<String> avabileClasses) {
+    public Product(String name, int durationInMonths, boolean contract, String description, double price, boolean active) {
         this.name = name;
         this.durationInMonths = durationInMonths;
         this.contract = contract;
         this.description = description;
         this.price = price;
-        this.activeInactive = activeInactive;
-        this.avabileClasses = avabileClasses;
+        this.active = active;
+    }
+    public Product() {
     }
 
     public long getId() {
@@ -78,19 +79,19 @@ public class Product {
         this.price = price;
     }
 
-    public boolean isActiveInactive() {
-        return activeInactive;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setActiveInactive(boolean activeInactive) {
-        this.activeInactive = activeInactive;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public List<String> getAvabileClasses() {
-        return avabileClasses;
-    }
-
-    public void setAvabileClasses(List<String> avabileClasses) {
-        this.avabileClasses = avabileClasses;
-    }
+//    public List<String> getAvabileClasses() {
+//        return avabileClasses;
+//    }
+//
+//    public void setAvabileClasses(List<String> avabileClasses) {
+//        this.avabileClasses = avabileClasses;
+//    }
 }
