@@ -5,10 +5,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.kaminski.apisoaprodkuty.model.Product;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
+@Transactional
+@CrossOrigin
 public class ProductApi {
     private ProductService productService;
 
