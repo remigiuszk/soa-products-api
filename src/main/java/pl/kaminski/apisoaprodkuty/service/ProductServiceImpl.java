@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     //for testing purposes
     @EventListener(ApplicationReadyEvent.class)
     public void addProduct(){
-        productRepo.save(new Product("nazwa", 12, false, "coolone", 12, true));
+        productRepo.save(new Product("nazwa", 12, false, "coolone", 12, true, "basic"));
     }
 
     @Override
@@ -44,8 +44,13 @@ public class ProductServiceImpl implements ProductService {
     public boolean setInactive(@PathVariable long id) {
         Optional<Product> product = productRepo.findById(id);
         if (product.isPresent()) {
-            product.get().setActive(false);
-            productRepo.save(product.get());
+            if(product.get().isActive()) {
+                product.get().setActive(false);
+                productRepo.save(product.get());
+            }
+            else{
+                product.get().setActive(true);
+            }
             return true;
         } else {
             return false;

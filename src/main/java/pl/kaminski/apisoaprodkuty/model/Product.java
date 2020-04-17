@@ -18,15 +18,16 @@ public class Product {
     private String description;
     private double price;
     private boolean active;
-    //private List<String> avabileClasses;
+    private String avabileClasses;
 
-    public Product(String name, int durationInMonths, boolean contract, String description, double price, boolean active) {
+    public Product(String name, int durationInMonths, boolean contract, String description, double price, boolean active, String avabileClasses) {
         this.name = name;
         this.durationInMonths = durationInMonths;
         this.contract = contract;
         this.description = description;
         this.price = price;
         this.active = active;
+        this.avabileClasses=avabileClasses;
     }
     public Product() {
     }
