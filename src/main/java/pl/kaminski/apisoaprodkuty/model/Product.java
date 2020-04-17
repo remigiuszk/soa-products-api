@@ -88,11 +88,11 @@ public class Product {
         this.active = active;
     }
 
-//    public List<String> getAvabileClasses() {
-//        return avabileClasses;
-//    }
-//
-//    public void setAvabileClasses(List<String> avabileClasses) {
-//        this.avabileClasses = avabileClasses;
-//    }
+    public String getAvabileClasses() {
+        return avabileClasses;
+    }
+
+    public void setAvabileClasses(String avabileClasses) {
+        this.avabileClasses = avabileClasses;
+    }
 }
