@@ -1,4 +1,5 @@
-methods: https://justfit-products.herokuapp.com/products - GET - get all products
+methods: 
+https://justfit-products.herokuapp.com/products - GET - get all products
 https://justfit-products.herokuapp.com/products\id - GET - get one product
 https://justfit-products.herokuapp.com/products\id - PATCH - change status(avabile/unavabile)
 https://justfit-products.herokuapp.com/products - POST - parameter body - add new product fields
