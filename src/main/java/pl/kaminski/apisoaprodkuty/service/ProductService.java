@@ -10,4 +10,5 @@ public interface ProductService {
     List<Product> getAllProducts();
     Optional<Product> getOneProductById(long id);
     boolean setInactive(long id);
+    void getAvailableClasses();
 }
