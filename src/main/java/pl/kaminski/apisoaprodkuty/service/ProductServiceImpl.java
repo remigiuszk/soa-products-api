@@ -17,8 +17,9 @@ import java.util.Optional;
 @Service
 public class ProductServiceImpl implements ProductService {
 
+    private String returnString;
     private ProductRepo productRepo;
-
+    private List<String> activityKindList = new ArrayList<>();
     public ProductServiceImpl(ProductRepo productRepo) {
         this.productRepo = productRepo;
     }
@@ -30,8 +31,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void addNewProduct(Product product) {
-        productRepo.save(product);
+    public String addNewProduct(Product product) {
+        returnString = ": ";
+        for (String s : activityKindList) {
+            returnString = returnString+ s+" ";
+            s= s.replace('"', ' ');
+            s=s.trim();
+            if (product.getAvabileClasses().equals(s)) {
+                productRepo.save(product);
+                return "Successfully added!";
+            }
+        }
+        return "Activity Kind must match one of the following"+returnString;
     }
 
     @Override
@@ -65,9 +76,8 @@ public class ProductServiceImpl implements ProductService {
     public void getAvailableClasses() {
         String url = "https://planowanie-zajec.herokuapp.com/getAllActivityKinds";
         RestTemplate restTemplate = new RestTemplate();
-        List<String> activityTypeList = new ArrayList<>();
         for (int i = 0; i < Objects.requireNonNull(restTemplate.getForObject(url, JsonNode.class)).size(); i++) {
-            activityTypeList.add(Objects.requireNonNull(restTemplate.getForObject(url, JsonNode.class)).get(i).get("name").toString());
+            activityKindList.add(Objects.requireNonNull(restTemplate.getForObject(url, JsonNode.class)).get(i).get("name").toString());
         }
     }
 }

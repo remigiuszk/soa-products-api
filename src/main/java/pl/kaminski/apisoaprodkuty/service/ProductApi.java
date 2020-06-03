@@ -33,8 +33,8 @@ public class ProductApi {
 
     @PostMapping
     public ResponseEntity addNewProduct(@RequestBody Product product) {
-        productService.addNewProduct(product);
-        return new ResponseEntity(HttpStatus.CREATED);
+
+        return new ResponseEntity(productService.addNewProduct(product), HttpStatus.CREATED);
     }
 
     @PatchMapping("{id}")

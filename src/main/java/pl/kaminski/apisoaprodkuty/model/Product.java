@@ -95,4 +95,18 @@ public class Product {
     public void setAvabileClasses(String avabileClasses) {
         this.avabileClasses = avabileClasses;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", durationInMonths=" + durationInMonths +
+                ", contract=" + contract +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", active=" + active +
+                ", avabileClasses='" + avabileClasses + '\'' +
+                '}';
+    }
 }
