@@ -24,12 +24,6 @@ public class ProductServiceImpl implements ProductService {
         this.productRepo = productRepo;
     }
 
-    //for testing purposes
-    @EventListener(ApplicationReadyEvent.class)
-    public void addProduct() {
-        productRepo.save(new Product("nazwa", 12, false, "coolone", 12, true, "basic"));
-    }
-
     @Override
     public String addNewProduct(Product product) {
         returnString = ": ";
