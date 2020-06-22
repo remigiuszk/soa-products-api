@@ -39,7 +39,7 @@ public class ProductApi {
         return new ResponseEntity(productService.addNewProduct(product), HttpStatus.CREATED);
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity setInactive(@PathVariable long id) {
         if (productService.setInactive(id)) {
             return new ResponseEntity(HttpStatus.OK);
