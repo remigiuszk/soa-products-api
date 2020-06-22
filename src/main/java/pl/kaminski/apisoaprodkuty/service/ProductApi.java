@@ -1,8 +1,11 @@
 package pl.kaminski.apisoaprodkuty.service;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import pl.kaminski.apisoaprodkuty.model.Product;
 
 import javax.transaction.Transactional;
@@ -11,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 @Transactional
-@CrossOrigin(origins="*")
 public class ProductApi {
     private ProductService productService;
 
@@ -46,5 +48,6 @@ public class ProductApi {
         }
 
     }
+    }
 
-}
+
